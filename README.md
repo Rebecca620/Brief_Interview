@@ -4,7 +4,7 @@
 
 Brief is a macOS menu bar tool for collecting project material and turning it into editable, shareable reports. The native capture panel uses SwiftUI/AppKit; the report editor uses a shared HTML/CSS/JavaScript workspace in WKWebView.
 
-- **[Download the Mac app](https://github.com/Rebecca620/Bried_Interview/raw/refs/heads/main/downloads/Brief-0.5.0-macOS.zip)** — version 0.5.0, Apple Silicon, macOS 13 or later. Extract the ZIP, open `Brief.app`, then click its document icon in the menu bar. The packaged app needs no Node.js installation or separate server.
+- **[Download the Mac app](https://github.com/Rebecca620/Brief_Interview/raw/refs/heads/main/downloads/Brief-0.5.0-macOS.zip)** — version 0.5.0, Apple Silicon, macOS 13 or later. Extract the ZIP, open `Brief.app`, then click its document icon in the menu bar. The packaged app needs no Node.js installation or separate server.
 - **[Try the sample inputs](demo-data/README.md)** · **[Architecture](docs/ARCHITECTURE.md)** · **[Accessibility](docs/ACCESSIBILITY.md)**
 
 The app is an ad-hoc signed development build, not notarized. If your Mac or organization blocks it, use the browser development instructions below to run the shared workspace. The downloadable binary is Apple Silicon only.

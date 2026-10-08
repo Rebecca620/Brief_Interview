@@ -4,7 +4,7 @@ Start with the repository [README](../README.md). It links to the downloadable m
 
 ## App download
 
-Download [Brief-0.5.0-macOS.zip](https://github.com/Rebecca620/Bried_Interview/raw/refs/heads/main/downloads/Brief-0.5.0-macOS.zip), extract it, open `Brief.app`, and select its document icon in the menu bar. It requires Apple Silicon and macOS 13+. The packaged app does not require Node.js or a separately started server.
+Download [Brief-0.5.0-macOS.zip](https://github.com/Rebecca620/Brief_Interview/raw/refs/heads/main/downloads/Brief-0.5.0-macOS.zip), extract it, open `Brief.app`, and select its document icon in the menu bar. It requires Apple Silicon and macOS 13+. The packaged app does not require Node.js or a separately started server.
 
 This is an ad-hoc signed development build without Apple notarization. If organization policy blocks it, use the browser development setup in the README. Do not disable operating-system security controls.
 
