@@ -6,6 +6,8 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:4187',
     headless: true,
+    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
     viewport: { width: 1440, height: 1000 },
     launchOptions: process.env.BRIEF_CHROME_PATH
       ? { executablePath: process.env.BRIEF_CHROME_PATH }

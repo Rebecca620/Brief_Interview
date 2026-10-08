@@ -39,6 +39,13 @@ jobs:
       - run: pnpm check
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:browser
+      - name: Preserve browser failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-failure-diagnostics
+          path: test-results
+          if-no-files-found: ignore
       - run: pnpm build
       - uses: actions/upload-artifact@v4
         with:

@@ -25,6 +25,8 @@ test('risk review stays local, requires selection, adds evidence, avoids duplica
   await page.locator('[data-risk="0"]').check();
   await page.locator('#risk-add').click();
   await page.getByRole('button', { name: 'Close dialog' }).click();
+  // Reload only after the asynchronous library transaction has committed.
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards')).toContainText('Needs discussion');
   await expect(page.locator('#sources')).toContainText('[Brief risk review]');

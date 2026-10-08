@@ -20,7 +20,8 @@ test('PNG preview downloads a real image and unsupported sharing has a download 
   await page.locator('#export-report').click();
   await page.locator('#export-format').selectOption('png');
   await page.locator('#export-save').click();
-  await expect(page.locator('#image-status')).toContainText('PNG page ready');
+  // Cold canvas/font initialization can take longer on a shared Linux runner.
+  await expect(page.locator('#image-status')).toContainText('PNG page ready', { timeout: 15000 });
   await expect(page.locator('[data-send]')).toBeDisabled();
   expect((await new AxeBuilder({ page }).include('#modal').analyze()).violations).toEqual([]);
   const promise = page.waitForEvent('download');

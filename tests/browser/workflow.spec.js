@@ -23,6 +23,8 @@ test('import, edit, reorder, share one card, reload, append and undo', async ({ 
   await page.getByLabel('Options for Launch complete', { exact: true }).click();
   await page.getByRole('button', { name: 'Move Launch complete down' }).click();
   await expect(page.locator('#cards h3').last()).toHaveText('Launch complete');
+  // Reload only after the asynchronous library transaction has committed.
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards h3').last()).toHaveText('Launch complete');
   await page.getByLabel('Options for Launch complete', { exact: true }).click();
