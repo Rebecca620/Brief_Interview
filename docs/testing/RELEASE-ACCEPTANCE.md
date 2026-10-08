@@ -1,6 +1,6 @@
 # macOS release acceptance
 
-Current assessment status (2026-09-28): the POC submission package is prepared, with 76 unit tests and 67 browser tests passing (one optional fixture skipped). The manual and distribution checks below remain open. They are release-hardening checks, not additional requirements invented for the assessment. See [assessment audit](../SUBMISSION-REQUIREMENTS.md).
+Current assessment status (2026-09-28): the POC submission package is prepared, with 76 unit tests and 67 browser tests passing (one optional fixture skipped). The manual and distribution checks below remain open. They are release-hardening checks, not additional requirements invented for the assessment.
 
 Historical release status on 2026-09-27: **not yet cleared for interview distribution**. Automated checks below pass, but the native recording, hosted CI and second-Mac checks remain pending. A source commit or a local signature check does not establish these missing outcomes.
 

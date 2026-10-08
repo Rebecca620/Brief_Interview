@@ -2,7 +2,7 @@
 
 ## Current 0.5 verification - September 28, 2026
 
-76 unit/server tests and 67 browser tests passed. One optional external-fixture browser case was skipped. JavaScript lint/format, strict Swift formatting, native storage/quit tests, release compilation and ad-hoc signature verification passed. Two isolated native WebKit launches verified creation, append, persistence and recovery of the prior library. See [the assessment audit](SUBMISSION-REQUIREMENTS.md) for what these results do and do not establish.
+76 unit/server tests and 67 browser tests passed. One optional external-fixture browser case was skipped. JavaScript lint/format, strict Swift formatting, native storage/quit tests, release compilation and ad-hoc signature verification passed. Two isolated native WebKit launches verified creation, append, persistence and recovery of the prior library.
 
 The following records are historical and do not replace the current counts.
 

@@ -20,6 +20,6 @@ Presentation files are shared separately and are not included in the current rep
 
 ## Requirements and verification
 
-Read [the requirements mapping](SUBMISSION-REQUIREMENTS.md), [accessibility notes](ACCESSIBILITY.md) and the dated verification records. Automated checks do not establish complete manual accessibility conformance.
+Read the [accessibility notes](ACCESSIBILITY.md) and dated verification records. Automated checks do not establish complete manual accessibility conformance.
 
 The repository's Actions page shows the latest CI results. Share the repository link with the interviewer; local filesystem and localhost links only work on your own device.
