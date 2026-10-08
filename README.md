@@ -5,12 +5,11 @@
 Brief is a macOS menu bar tool for collecting project material and turning it into editable, shareable reports. The native capture panel uses SwiftUI/AppKit; the report editor uses a shared HTML/CSS/JavaScript workspace in WKWebView.
 
 - **[Download the Mac app](https://github.com/Rebecca620/Bried_Interview/raw/refs/heads/main/downloads/Brief-0.5.0-macOS.zip)** — version 0.5.0, Apple Silicon, macOS 13 or later. Extract the ZIP, open `Brief.app`, then click its document icon in the menu bar. The packaged app needs no Node.js installation or separate server.
-- **[PowerPoint presentation](presentation/interview-deck/Brief_Interview_VERIFIED.pptx)** · **[PDF presentation](presentation/interview-deck/Brief_Interview_VERIFIED.pdf)** · **[English speaker script](presentation/interview-deck/Brief_macOS_15-slide_speech.txt)**
 - **[Try the sample inputs](demo-data/README.md)** · **[Architecture](docs/ARCHITECTURE.md)** · **[Accessibility](docs/ACCESSIBILITY.md)**
 
-The app is an ad-hoc signed development build, not notarized. If your Mac or organization blocks it, use the browser development instructions below or review the PDF. The downloadable binary is Apple Silicon only.
+The app is an ad-hoc signed development build, not notarized. If your Mac or organization blocks it, use the browser development instructions below to run the shared workspace. The downloadable binary is Apple Silicon only.
 
-This repository publishes the source and app from the September 28 submission, with the corrected October 8 presentation added separately. The updated deck includes screenshots from the browser prototype, including translation; it should not be read as verification that every pictured feature exists in the packaged Mac build. The original presentation and dated verification records are retained for context.
+This repository contains the macOS app, source, sample inputs and verification evidence. Interview presentations are shared separately.
 
 ---
 

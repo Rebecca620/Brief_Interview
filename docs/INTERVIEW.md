@@ -1,27 +1,25 @@
 # Interview handoff
 
-Use the packaged `START-HERE.md` as the reviewer’s entry point. The current submission is `.build/Brief-Submission-0.5.0.zip`. It includes the current app, full source, a static browser build, synthetic demo/test material, the presentation and verification evidence.
+Start with the repository [README](../README.md). It links to the downloadable macOS app, setup instructions, sample inputs and engineering documentation.
 
-## English presentation
+## App download
 
-The deck has 12 slides. Open `presentation/index.html` in the submission bundle, or use `presentation/Brief-15-minute.pdf`. Speaker notes and the 15-minute schedule are in `presentation/SPEAKER-NOTES.md`. The talk includes a 2:30 fictional-data demo. The browser deck supports arrows, full screen, notes and a rehearsal timer. Its JSON content and HTML template are included in source.
+Download [Brief-0.5.0-macOS.zip](https://github.com/Rebecca620/Bried_Interview/raw/refs/heads/main/downloads/Brief-0.5.0-macOS.zip), extract it, open `Brief.app`, and select its document icon in the menu bar. It requires Apple Silicon and macOS 13+. The packaged app does not require Node.js or a separately started server.
 
-The deck is HTML/PDF, not a PowerPoint file. The PowerPoint authoring runtime was unavailable in this environment. This does not affect the product’s separate PPTX export feature. A presentation format was not specified by the assessment.
-
-Rehearse once and adjust the script to your speaking pace and your own account of the work. A planned 15-minute duration is not a measured rehearsal.
+This is an ad-hoc signed development build without Apple notarization. If organization policy blocks it, use the browser development setup in the README. Do not disable operating-system security controls.
 
 ## Demo
 
-Use `demo-data/README.md`. Lead with native capture if the app runs on the presentation Mac. Use the browser workspace as a fallback, and label it accurately. The screenshots show the shared workspace with fictional inputs. No native video recording is included.
+Use [the fictional sample inputs](../demo-data/README.md). Lead with native capture on a compatible Mac. The shared browser workspace is an alternative for reviewing the report editor.
 
-Do not send a real message or calendar invitation during the demo. Prepare the copy/export or native sharing picker and cancel before sending.
+Prepare copy/export or the native sharing picker without sending real messages or calendar invitations during the demo.
 
-## Requirements and limits
+## Presentation
 
-Read [the requirements audit](SUBMISSION-REQUIREMENTS.md). The core POC is implemented. Manual accessibility evidence, target-client rendering and the candidate’s rehearsal remain important. The deadline needs confirmation against the invitation date.
+Presentation files are shared separately and are not included in the current repository. The product's report-to-PowerPoint export feature remains available.
 
-The Mac app requires macOS 13+ on Apple Silicon and is ad-hoc signed, not notarized. Source and browser/PDF fallbacks are supplied. Do not disable operating-system security controls to demonstrate a pass.
+## Requirements and verification
 
-## Submission
+Read [the requirements mapping](SUBMISSION-REQUIREMENTS.md), [accessibility notes](ACCESSIBILITY.md) and the dated verification records. Automated checks do not establish complete manual accessibility conformance.
 
-Use the included `SUBMISSION-EMAIL.txt` as an editable draft. No email is sent automatically. The ZIP can be attached if the recipient’s mail limit permits, or uploaded to an approved shared location. No public link or hosted CI run is claimed. A local filesystem link or localhost URL is not a recipient-accessible delivery link.
+The repository's Actions page shows the latest CI results. Share the repository link with the interviewer; local filesystem and localhost links only work on your own device.
