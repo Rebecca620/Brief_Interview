@@ -57,6 +57,7 @@ test('paired graph has closed counts, an accessible table, and persists in expor
   );
   await page.locator('#create-report').click();
   await expect(page).toHaveURL(/#report\//);
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards img')).toBeVisible();
   await page.locator('#export-report').click();
@@ -88,6 +89,7 @@ test('source sections, exclusions and quick moves update the real live preview',
   await expect(page.locator('#cards .card')).toHaveCount(1);
   await page.locator('[data-quick-section]').selectOption('progress');
   await expect(page.locator('#cards .report-section h2')).toHaveText('Progress');
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('[data-quick-section]')).toHaveValue('progress');
 });

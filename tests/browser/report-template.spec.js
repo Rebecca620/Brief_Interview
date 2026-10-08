@@ -30,6 +30,7 @@ test('reference report restores, switches layouts without changing cards and pre
   await page.getByRole('button', { name: 'Close dialog' }).click();
   await page.locator('#report-template').selectOption('standard');
   await expect(page.locator('#cards .card')).toHaveCount(10);
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#report-template')).toHaveValue('standard');
   await page.locator('#report-template').selectOption('retrospective');

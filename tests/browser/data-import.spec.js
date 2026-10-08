@@ -39,6 +39,7 @@ test('numeric import reviews fields, selected findings, original data and persis
   await page.locator('#create-report').click();
   await expect(page).toHaveURL(/#report\//);
   await expect(page.locator('#builder-view')).toBeVisible();
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#sources')).toContainText('progress.json');
   await expect(page.locator('#sources')).toContainText('"value":2');

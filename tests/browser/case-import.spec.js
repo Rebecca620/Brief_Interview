@@ -57,6 +57,7 @@ test('case report is ready without metric choices, retains evidence limits, and 
   await expect(page.locator('#cards .card')).toHaveCount(4);
   await expect(page.locator('#cards')).toContainText('Needs discussion');
   await expect(page.locator('#cards')).toContainText('Next steps');
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards img')).toBeVisible();
 });
@@ -159,6 +160,7 @@ test('text evidence skips empty score controls and imports reviewed records with
   await expect(page.locator('#cards .card')).toHaveCount(1);
   await expect(page.locator('#cards')).toContainText('Needs discussion');
   await expect(page.locator('#cards')).toContainText('The tool output is missing.');
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards')).toContainText('The tool output is missing.');
 });

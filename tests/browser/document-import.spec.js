@@ -40,6 +40,7 @@ test('Word upload reviews text locally, assigns section, escapes text and persis
   await expect(page).toHaveURL(/#report\//);
   await expect(page.locator('#cards')).toContainText('Needs discussion');
   await expect(page.locator('#cards')).toContainText('Pilot is ready');
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#sources')).toContainText('paragraph');
   expect(posts).toEqual([]);

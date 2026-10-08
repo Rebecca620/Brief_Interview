@@ -36,6 +36,7 @@ test('normal upload recognizes report backups and preserves headings, cards, cha
   expect(sizes[1]).toBeGreaterThanOrEqual(14); // Compact section labels sit above stronger card titles.
   expect(sizes[2]).toBeGreaterThan(sizes[3]);
   await page.screenshot({ path: '.build/report-hierarchy-desktop.png', fullPage: true });
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards .card')).toHaveCount(10);
   await page.setViewportSize({ width: 375, height: 812 });

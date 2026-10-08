@@ -26,6 +26,7 @@ test('library, searchable reports, recoverable Trash and restore survive reload'
   await page.getByRole('button', { name: 'Move to Trash' }).click();
   await page.locator('#trash-reports').click();
   await expect(page.locator('.library-card')).toHaveCount(1);
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await page.getByRole('button', { name: 'Restore', exact: true }).click();
   await page.locator('#all-reports').click();

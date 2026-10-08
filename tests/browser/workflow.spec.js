@@ -242,6 +242,7 @@ test('example creates an editable report with preserved numbers and explicit sec
   await page.getByLabel('Due date (optional)').fill('2026-10-02');
   await page.getByRole('button', { name: 'Save changes' }).click();
   await expect(page.locator('#review-summary')).toBeHidden();
+  await expect(page.locator('#save-status')).toHaveText('Saved on this device');
   await page.reload();
   await expect(page.locator('#cards')).toContainText('Owner: Sam Rivera');
   await expect(page.locator('#cards')).toContainText('Due: 2026-10-02');
