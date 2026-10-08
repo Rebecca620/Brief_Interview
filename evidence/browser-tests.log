@@ -1,0 +1,77 @@
+
+Running 68 tests using 1 worker
+
+(node:93046) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/68] tests/browser/ai-review.spec.js:20:1 › AI disclosure precedes transmission, then user applies and undoes the type suggestion
+[2/68] tests/browser/ai-review.spec.js:49:1 › low confidence and errors preserve the original card
+[3/68] tests/browser/ai-review.spec.js:66:1 › static mode hides unavailable AI and leaves editing accessible
+[4/68] tests/browser/case-import.spec.js:45:1 › case report is ready without metric choices, retains evidence limits, and stages into useful sections
+[5/68] tests/browser/case-import.spec.js:63:1 › case import can be cancelled or switched to manual analysis without losing the file
+[6/68] tests/browser/case-import.spec.js:75:1 › recommended metrics stay concise, constants remain accessible, and zero values are counted
+[7/68] tests/browser/case-import.spec.js:98:1 › provided local case file produces an immediate review with no metric mapping
+[8/68] tests/browser/case-import.spec.js:117:1 › text evidence skips empty score controls and imports reviewed records with source
+[9/68] tests/browser/data-import.spec.js:10:1 › numeric import reviews fields, selected findings, original data and persistence
+[10/68] tests/browser/data-import.spec.js:49:1 › evaluation JSONL uses explicit passing rule, and edits invalidate old findings
+[11/68] tests/browser/data-import.spec.js:77:1 › compress schema selects evaluation mode and exposes candidate score owners
+[12/68] tests/browser/data-import.spec.js:113:1 › malformed JSONL gives line error and mobile review stays inside viewport
+[13/68] tests/browser/data-import.spec.js:133:1 › multiple data files each receive their own review and can be cancelled independently
+[14/68] tests/browser/document-import.spec.js:21:1 › Word upload reviews text locally, assigns section, escapes text and persists source
+[15/68] tests/browser/document-import.spec.js:47:1 › PDF extracts page text and discloses blank/image-only pages before import
+[16/68] tests/browser/document-import.spec.js:70:1 › image-only PDFs and legacy Word provide actionable errors
+[17/68] tests/browser/document-import.spec.js:86:1 › cancelled document review stages nothing and malformed or oversized Word archives fail
+[18/68] tests/browser/native-capture.spec.js:31:1 › native capture creates readable cards, flushes and appends to saved reports
+[19/68] tests/browser/native-capture.spec.js:57:1 › ambiguous import cancellation and malformed inputs leave the library untouched
+[20/68] tests/browser/native-capture.spec.js:97:1 › native file handoff preserves bytes and handles cancellation
+[21/68] tests/browser/native-capture.spec.js:113:1 › report names stay synchronized with the native destination list
+[22/68] tests/browser/native-capture.spec.js:127:1 › Word and PDF from native capture append to one existing report after review
+[23/68] tests/browser/native-capture.spec.js:182:1 › outside click cancels native review atomically and permits another capture
+[24/68] tests/browser/native-capture.spec.js:215:1 › outside click dismisses settings and editing without applying unsaved card changes
+[25/68] tests/browser/redesign.spec.js:14:1 › library, searchable reports, recoverable Trash and restore survive reload
+[26/68] tests/browser/redesign.spec.js:34:1 › direct edits autosave, and document undo/redo restore changes
+[27/68] tests/browser/redesign.spec.js:52:1 › unfinished inspector edits survive Escape and reload without changing the published card
+[28/68] tests/browser/redesign.spec.js:67:1 › large accepted attachment saves separately, reloads and exports intact
+[29/68] tests/browser/redesign.spec.js:96:1 › legacy library migration preserves original storage and content
+[30/68] tests/browser/redesign.spec.js:116:1 › share and export have focused actions; nested previews retain focus
+[31/68] tests/browser/redesign.spec.js:128:1 › library and editor accessibility, themes and narrow windows
+[32/68] tests/browser/report-file-import.spec.js:10:1 › normal upload recognizes report backups and preserves headings, cards, charts and owners
+[33/68] tests/browser/report-file-import.spec.js:49:1 › cancel and invalid report backups cannot pollute or replace an existing draft
+[34/68] tests/browser/report-file-import.spec.js:76:1 › text records use content titles and retain nested technical fields only as evidence
+[35/68] tests/browser/report-file-import.spec.js:104:1 › long report titles follow container and viewport changes without clipping
+[36/68] tests/browser/report-template.spec.js:10:1 › reference report restores, switches layouts without changing cards and previews accessibly
+[37/68] tests/browser/report-template.spec.js:45:1 › test-kit numeric and paired gold values agree with the rendered analysis
+[38/68] tests/browser/report-template.spec.js:94:1 › downloaded reference HTML stays centered and does not overflow on mobile
+[39/68] tests/browser/risk-review.spec.js:3:1 › risk review stays local, requires selection, adds evidence, avoids duplicates and supports undo
+[40/68] tests/browser/risk-review.spec.js:36:1 › empty review avoids claiming safety and date errors clear results
+[41/68] tests/browser/sharing.spec.js:14:1 › downloaded report and single card are centered and reflow on narrow screens
+[42/68] tests/browser/sharing.spec.js:41:1 › email opens a complete prefilled mailto draft without copying or setting a recipient
+[43/68] tests/browser/sharing.spec.js:63:1 › native share passes only selected report text and treats cancellation as normal
+[44/68] tests/browser/sharing.spec.js:89:1 › supported native file sharing contains the centered HTML for only the selected card
+[45/68] tests/browser/sharing.spec.js:120:1 › unavailable or failed native sharing leaves email and downloads available
+[46/68] tests/browser/visual-reporting.spec.js:44:1 › paired graph has closed counts, an accessible table, and persists in exported HTML
+[47/68] tests/browser/visual-reporting.spec.js:72:1 › source sections, exclusions and quick moves update the real live preview
+[48/68] tests/browser/visual-reporting.spec.js:95:1 › HTML tables become cards without loading resources or executing imported code
+[49/68] tests/browser/visual-reporting.spec.js:120:1 › PowerPoint download contains selected editable text, native tables and chart media
+[50/68] tests/browser/visual-reporting.spec.js:169:1 › meeting draft is editable, validates times and exports only an agenda event
+[51/68] tests/browser/visual-reporting.spec.js:197:1 › paired chart reflows on mobile and exposes exact numbers without relying on colors
+[52/68] tests/browser/visual-sharing.spec.js:12:1 › PNG preview downloads a real image and unsupported sharing has a download fallback
+[53/68] tests/browser/visual-sharing.spec.js:38:1 › prepared PNG sharing uses files and cancellation leaves the preview usable
+[54/68] tests/browser/visual-sharing.spec.js:61:1 › long text produces multiple readable PNG pages; print document retains escaped text and exact tables
+[55/68] tests/browser/visual-sharing.spec.js:86:1 › blocked PDF popup provides recovery and formatted email is prominent
+[56/68] tests/browser/workflow.spec.js:16:1 › import, edit, reorder, share one card, reload, append and undo
+[57/68] tests/browser/workflow.spec.js:57:1 › image descriptions gate formatted sharing and asset downloads work
+[58/68] tests/browser/workflow.spec.js:82:1 › restore adds copies and invalid backup leaves reports intact
+[59/68] tests/browser/workflow.spec.js:100:1 › skip link preserves route and small screens reflow without horizontal scrolling
+[60/68] tests/browser/workflow.spec.js:119:1 › automated accessibility scan of home, editor, settings and export in both themes
+[61/68] tests/browser/workflow.spec.js:145:1 › clipboard denial provides selectable text fallback
+[62/68] tests/browser/workflow.spec.js:165:1 › failed storage keeps an unsaved status and warns on reload
+[63/68] tests/browser/workflow.spec.js:184:1 › formatted clipboard contains only the selected card with both MIME types
+[64/68] tests/browser/workflow.spec.js:209:1 › keyboard editing returns focus to the rebuilt edit control
+[65/68] tests/browser/workflow.spec.js:223:1 › example creates an editable report with preserved numbers and explicit sections
+[66/68] tests/browser/workflow.spec.js:256:1 › formatted copy fallback includes the complete report and uses the preview card HTML
+[67/68] tests/browser/workflow.spec.js:280:1 › mobile switches between material and preview and preserves edits
+[68/68] tests/browser/workflow.spec.js:300:1 › long reports keep sharing reachable and respect increased contrast
+  1 skipped
+  67 passed (48.8s)

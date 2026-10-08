@@ -1,0 +1,9 @@
+/* Styles are co-located with the feature they belong to. */
+@import './src/shared/base.css';
+@import './src/shared/shell.css';
+@import './src/features/library/library.css';
+@import './src/features/intake/intake.css';
+@import './src/features/reports/report.css';
+@import './src/shared/dialog.css';
+@import './src/features/ai-review/ai-review.css';
+@import './src/shared/responsive.css';

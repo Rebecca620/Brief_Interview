@@ -1,0 +1,19 @@
+{
+  "headings" : 6,
+  "destinationRetained" : true,
+  "appended" : {
+    "message" : "1 cards ready to review.",
+    "consumed" : true,
+    "reportId" : "a091a3ac-ccea-45c9-9f64-3a3d40555c10"
+  },
+  "secure" : true,
+  "after" : 1,
+  "result" : {
+    "message" : "5 cards ready to review.",
+    "consumed" : true,
+    "reportId" : "a091a3ac-ccea-45c9-9f64-3a3d40555c10"
+  },
+  "before" : 0,
+  "flushed" : true,
+  "persisted" : true
+}

@@ -1,0 +1,401 @@
+.preview-panel {
+  padding: 28px 32px;
+  min-width: 0;
+  background: var(--subtle);
+}
+.template-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  font-size: 12px;
+}
+.template-controls select {
+  flex: 1;
+  min-width: 0;
+}
+.retrospective .email-card {
+  margin-top: 0 !important;
+}
+#sample-preview,
+#builder-view {
+  background: #fff;
+  color: #1d1d1f;
+  border: 1px solid #dedee3;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 4px 20px #00000004;
+}
+#sample-preview .email-report {
+  padding: 0 !important;
+}
+
+.report-meta input {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 5px 0;
+  border-radius: 0;
+}
+.report-meta input:hover,
+.report-meta input:focus {
+  border-bottom-color: var(--line);
+}
+#report-title {
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -0.5px;
+}
+#report-period {
+  font-size: 12px;
+  color: #64646b;
+}
+.review-summary {
+  font-size: 12px;
+  margin: 12px 0 0;
+  color: #795000;
+}
+.report-section {
+  margin-top: 20px;
+}
+.report-section > h2 {
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: #64646b;
+  border-bottom: 0;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+}
+.card {
+  position: relative;
+  padding-bottom: 6px;
+}
+.card-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin: -6px 0 12px;
+  padding: 0 4px;
+}
+.card-tools button,
+.card-tools summary {
+  background: transparent;
+  color: #64646b;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 11px;
+  padding: 4px 8px;
+  min-height: 28px;
+}
+.card-tools button:hover,
+.card-tools summary:hover {
+  background: #f0f0f3;
+}
+.card-options {
+  position: relative;
+}
+.card-options > div {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 180px;
+  z-index: 2;
+  display: grid;
+  padding: 8px;
+  border: 1px solid #dedee3;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px #0001;
+}
+.card-options button {
+  text-align: left;
+  min-height: 36px;
+}
+.card-issues {
+  margin: 4px 0 10px;
+  display: grid;
+  gap: 4px;
+}
+.card-issues button {
+  text-align: left;
+  color: #795000;
+  background: #fff2d6;
+  border: 0;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+.add-card {
+  width: 100%;
+  border: 1px dashed #8b8b93;
+  padding: 12px;
+  border-radius: 6px;
+  background: #fff;
+  color: #0066cc;
+  margin: 18px 0 10px;
+}
+.preview-foot {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--secondary);
+  padding: 20px 8px 0;
+  font-size: 12px;
+}
+.preview-foot > span {
+  font-size: 20px;
+  color: var(--accent);
+}
+.preview-foot p {
+  margin: 0;
+}
+.card-tools select {
+  max-width: 190px;
+  margin: 0 auto 0 0;
+  font-size: 12px;
+  padding: 5px;
+}
+.card-tools {
+  flex-wrap: wrap;
+}
+
+/* Report typography: title > section > snippet > body, with a quiet editing rail. */
+#report-heading {
+  margin: 0;
+}
+#report-title {
+  font-size: 2.125rem;
+  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.report-meta {
+  padding-bottom: 22px;
+  border-bottom: 1px solid #dedee3;
+}
+#report-period {
+  font-size: 13px;
+}
+.report-section {
+  margin-top: 2rem;
+}
+.report-section > h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #1d1d1f;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d2d2d7;
+}
+.card-tools {
+  margin: 8px 0 16px;
+  padding: 0;
+}
+.card-tools select {
+  border-color: transparent;
+  background: transparent;
+  color: #64646b;
+  max-width: 170px;
+}
+.card-tools select:hover,
+.card-tools select:focus {
+  border-color: #8b8b93;
+}
+.card-issues:empty {
+  display: none;
+}
+#builder-view,
+#sample-preview {
+  border: 0;
+  border-radius: 4px;
+  box-shadow:
+    0 2px 4px #00000004,
+    0 12px 36px #00000006;
+  padding: 40px;
+}
+.template-controls {
+  padding: 10px 0;
+  border-bottom: 1px solid #e8e8ed;
+}
+.template-controls label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64646b;
+  margin: 0;
+}
+.template-controls select {
+  font-size: 12px;
+  border-color: transparent;
+  background: transparent;
+}
+#import-report-preview {
+  margin: 24px 0;
+  background: white;
+  border: 1px solid #dedee3;
+  border-radius: 8px;
+}
+@media (min-width: 1000px) {
+  body[data-page='report'] .composer {
+    grid-template-columns: minmax(300px, 0.29fr) minmax(0, 0.71fr);
+    border-radius: 12px;
+    box-shadow: none;
+  }
+  body[data-page='report'] .material-panel {
+    background: var(--surface);
+    padding: 24px;
+  }
+  body[data-page='report'] .preview-panel {
+    background: var(--subtle);
+    padding: 28px;
+  }
+}
+@media (max-width: 700px) {
+  #builder-view,
+  #sample-preview {
+    padding: 20px 4px;
+  }
+  #report-title {
+    font-size: 28px;
+  }
+  .report-section > h2 {
+    font-size: 21px;
+  }
+  #import-report-preview .email-report {
+    padding: 16px !important;
+  }
+}
+#report-title {
+  min-height: 0;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 5px 0;
+}
+#report-title:hover,
+#report-title:focus {
+  border-bottom-color: var(--line);
+}
+
+/* The editable canvas follows system appearance; exports retain a white page. */
+.preview-panel {
+  padding: 0;
+  background: transparent;
+}
+#builder-view,
+#sample-preview {
+  color: var(--text);
+  background: var(--surface);
+  padding: 40px 48px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 3px 16px #00000003;
+}
+#builder-view {
+  color-scheme: inherit;
+}
+#builder-view .email-card {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+#builder-view .email-card :is(h3, p, span, div) {
+  color: inherit;
+}
+#builder-view .email-card h3 {
+  color: var(--text) !important;
+}
+#builder-view .email-card p {
+  color: var(--text) !important;
+}
+#report-title {
+  font-size: 30px;
+  color: var(--text);
+}
+#report-period {
+  color: var(--secondary);
+}
+.report-meta {
+  padding-bottom: 14px;
+  border-color: var(--line);
+}
+.template-controls {
+  margin: 8px 0;
+  border-color: var(--line);
+}
+.template-controls :is(label, select) {
+  color: var(--secondary);
+}
+.report-section {
+  margin-top: 28px;
+}
+.report-section > h2 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding-bottom: 10px;
+  color: var(--secondary);
+  border-color: var(--line);
+}
+.card-tools :is(button, select, summary) {
+  color: var(--secondary);
+}
+.card-tools select {
+  color: var(--secondary);
+}
+.card-tools :is(button, summary):hover {
+  background: var(--subtle);
+}
+.card-options > div {
+  background: var(--surface);
+  border-color: var(--line);
+}
+.card {
+  border-radius: 6px;
+}
+.card:focus-within {
+  outline: 1px solid var(--line);
+  outline-offset: 6px;
+}
+.inline-title,
+.inline-body {
+  cursor: text;
+  border-radius: 4px;
+  outline-offset: 3px;
+}
+.inline-title:hover,
+.inline-body:hover {
+  background: var(--subtle);
+}
+.inline-body:empty::before {
+  content: 'Add details…';
+  color: var(--secondary);
+}
+.inline-body {
+  min-height: 1.5em;
+  white-space: pre-wrap;
+}
+.add-card {
+  color: var(--accent);
+  background: transparent;
+  border-color: var(--control-line);
+  border-radius: 8px;
+}
+.card-issues button {
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+.review-summary {
+  color: var(--warning);
+}
+body[data-page='report'] .preview-panel {
+  padding: 0;
+  background: transparent;
+}
+body[data-page='report'] .material-panel {
+  background: var(--surface);
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}

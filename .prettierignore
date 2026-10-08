@@ -1,0 +1,13 @@
+node_modules
+pnpm-lock.yaml
+test-results
+playwright-report
+.build
+dist
+
+vendor
+
+# Preserved submission logs and export artifacts
+evidence
+downloads/SHA256SUMS.txt
+presentation/interview-deck

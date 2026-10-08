@@ -1,0 +1,224 @@
+/* Shared tokens and primitives. Feature-specific layouts follow below. */
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  font-optical-sizing: auto;
+  color-scheme: light;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --sidebar: #f1f1ef;
+  --field: #ffffff;
+  --text: #1d1d1f;
+  --secondary: #64646b;
+  --line: #e6e6e3;
+  --accent: #0066cc;
+  --accent-bg: #eaf3ff;
+  --subtle: #f0f0f3;
+  --warning: #795000;
+  --warning-bg: #fff2d6;
+  --danger: #b3261e;
+  --control-line: #8b8b93;
+  --primary: #0066cc;
+  --primary-hover: #0055ad;
+  --chrome: #fafaf9ed;
+  --shadow: 0 8px 32px #00000006, 0 1px 3px #00000004;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #161617;
+  --surface: #242426;
+  --sidebar: #202022;
+  --field: #303033;
+  --text: #f5f5f7;
+  --secondary: #b0b0b8;
+  --line: #63636c;
+  --accent: #79b8ff;
+  --accent-bg: #20334b;
+  --subtle: #202022;
+  --warning: #f3cc7a;
+  --warning-bg: #403521;
+  --danger: #ff9890;
+  --control-line: #85858e;
+  --chrome: #161617ed;
+  --shadow: 0 8px 32px #00000020;
+}
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 18px;
+}
+p {
+  overflow-wrap: anywhere;
+}
+label {
+  display: block;
+  margin: 14px 0 7px;
+  font-size: 13px;
+  font-weight: 600;
+}
+input,
+textarea,
+select {
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background: var(--field);
+  padding: 10px;
+  max-width: 100%;
+}
+input:not([type='checkbox']),
+textarea {
+  width: 100%;
+}
+textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--secondary);
+  opacity: 1;
+}
+.btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-weight: 500;
+  transition: box-shadow 140ms ease;
+  min-height: 40px;
+  font-size: 13px;
+}
+.btn:hover,
+.text-button:hover {
+  background: var(--subtle);
+}
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow:
+    inset 0 1px 0 #ffffff26,
+    0 1px 2px #00000012;
+}
+.btn.primary:hover {
+  background: var(--primary-hover);
+}
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 8px 4px;
+  min-height: 36px;
+  text-align: left;
+}
+.danger {
+  color: var(--danger);
+}
+.full {
+  width: 100%;
+}
+.muted,
+.modal-description,
+.optional,
+.empty {
+  color: var(--secondary);
+}
+.eyebrow,
+.section-label {
+  color: var(--secondary);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px;
+  background: var(--surface);
+  color: var(--accent);
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+a {
+  color: var(--accent);
+}
+summary {
+  cursor: pointer;
+}
+
+input[type='checkbox'] {
+  accent-color: var(--primary);
+}
+button:active:not(:disabled) {
+  filter: brightness(0.94);
+}
+
+/* One optical grid and stroke weight for all web controls. Labels carry meaning. */
+.ui-icon {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+  vertical-align: -0.18em;
+  pointer-events: none;
+}
+[data-icon] {
+  display: inline-block;
+}
+.card-tools .ui-icon {
+  width: 1em;
+  height: 1em;
+}
+
+body[data-loading='true'] {
+  visibility: hidden;
+}

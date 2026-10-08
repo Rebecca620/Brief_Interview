@@ -1,0 +1,221 @@
+.material-panel {
+  padding: 26px;
+  min-width: 0;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+}
+.material-panel label[for='intake-notes'] {
+  font-size: 14px;
+  margin-top: 0;
+}
+#intake-notes {
+  min-height: 170px;
+  background: var(--surface);
+  padding: 16px;
+  font-size: 14px;
+  border-color: var(--control-line);
+}
+.field-help {
+  color: var(--secondary);
+  font-size: 12px;
+  margin: 8px 0 14px;
+}
+.intake-drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px dashed var(--control-line);
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 18px 12px;
+  cursor: pointer;
+  margin: 20px 0 8px;
+  text-align: left;
+}
+.intake-drop:focus-within {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.intake-drop > span:first-child {
+  font-size: 23px;
+  color: var(--accent);
+}
+.intake-drop strong,
+.intake-drop small {
+  display: block;
+}
+.intake-drop small {
+  font-size: 12px;
+  color: var(--secondary);
+  font-weight: 400;
+  margin-top: 3px;
+}
+.intake-drop input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.import-options {
+  color: var(--secondary);
+  font-size: 12px;
+}
+.import-options summary {
+  min-height: 28px;
+}
+.import-options p {
+  margin-top: 10px;
+}
+.split-option {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 400;
+}
+.intake-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+}
+.intake-bottom .primary {
+  flex: 1;
+  min-width: 170px;
+}
+.privacy-note {
+  margin: 26px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--secondary);
+  font-size: 11px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+#material-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#material-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 12px;
+}
+#material-list small {
+  display: block;
+  color: var(--secondary);
+}
+#material-list strong {
+  overflow-wrap: anywhere;
+}
+.source-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.source-heading h3 {
+  font-size: 13px;
+  margin: 0;
+}
+.source-heading span {
+  font-size: 12px;
+  color: var(--secondary);
+}
+.source {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 7px;
+  overflow-wrap: anywhere;
+}
+.source summary {
+  font-size: 12px;
+}
+.source p {
+  white-space: pre-wrap;
+  font-size: 12px;
+  color: var(--secondary);
+  margin: 12px 0 0;
+  max-height: 220px;
+  overflow: auto;
+}
+.addition-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 12px 0;
+}
+.addition-banner > span {
+  flex: 1;
+}
+.staged-source {
+  display: block !important;
+}
+.staged-source > div {
+  margin-bottom: 8px;
+}
+.staged-destination {
+  font-size: 12px;
+}
+.staged-source select {
+  width: 100%;
+  margin: 4px 0 12px;
+}
+.staged-card {
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+}
+.staged-card label {
+  display: flex;
+  gap: 8px;
+  align-items: start;
+  overflow-wrap: anywhere;
+}
+.staged-card small {
+  display: block;
+}
+#notes-section {
+  margin: 0;
+}
+/* Keep destination names readable in the compact materials sidebar. */
+.material-panel .preference-row {
+  display: grid;
+  gap: 8px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.material-panel .preference-row select {
+  width: 100%;
+  max-width: 100%;
+}
+.material-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.note-options,
+.example-data {
+  font-size: 12px;
+  color: var(--secondary);
+  margin: 14px 0;
+}
+.note-options summary,
+.example-data summary {
+  padding: 4px 0;
+}

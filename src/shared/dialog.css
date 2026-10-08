@@ -1,0 +1,339 @@
+/* Dialogs shared by report editing and sharing */
+dialog {
+  max-width: min(680px, calc(100% - 24px));
+  width: 680px;
+  max-height: 90dvh;
+  padding: 28px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 24px 80px #00000026;
+}
+dialog::backdrop {
+  background: #0005;
+  backdrop-filter: blur(5px);
+}
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: -28px;
+  z-index: 3;
+  background: var(--surface);
+  padding: 16px 0;
+  margin-top: -16px;
+}
+.modal-heading h2 {
+  margin: 0;
+}
+.modal-heading button {
+  border: 0;
+  background: transparent;
+  font-size: 26px;
+  min-width: 40px;
+  min-height: 40px;
+}
+#modal-body {
+  margin-top: 18px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.form-field select {
+  width: 100%;
+}
+.form-error {
+  padding: 12px;
+  color: var(--warning);
+  background: var(--warning-bg);
+  border-radius: 6px;
+}
+.source-detail {
+  margin-top: 20px;
+  padding: 14px;
+  background: var(--subtle);
+  border-radius: 6px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  max-height: 200px;
+  overflow: auto;
+}
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.mention-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mention-list button {
+  border: 1px solid var(--line);
+  background: var(--accent-bg);
+  color: var(--accent);
+  padding: 8px;
+  border-radius: 5px;
+}
+.share-option {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  text-align: left;
+}
+.share-option small {
+  display: block;
+  color: var(--secondary);
+  margin-top: 4px;
+}
+.preview-report {
+  padding: 8px;
+}
+
+/* Links that launch default apps have the same hit area as other share actions. */
+a.share-option {
+  text-decoration: none;
+}
+.share-option.primary small {
+  color: #fff;
+}
+.copy-options {
+  margin-top: 20px;
+}
+.copy-options summary {
+  color: var(--secondary);
+  padding: 8px 0;
+}
+
+.data-finding {
+  margin: 14px 0;
+  padding: 16px;
+  background: var(--subtle);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow-wrap: anywhere;
+}
+.data-finding p {
+  white-space: pre-wrap;
+}
+#data-fields {
+  margin: 16px 0;
+}
+#data-fields details {
+  margin: 16px 0;
+}
+
+dialog.wide {
+  width: 960px;
+  max-width: calc(100% - 24px);
+}
+.case-section {
+  display: block;
+  max-width: 260px;
+  margin: 12px 0;
+  font-size: 12px;
+}
+.case-section select {
+  width: 100%;
+}
+
+/* Grouped controls adapted from Apple's macOS UI-kit resource preview. */
+.settings-group {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--subtle);
+}
+.settings-group .settings-backup-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+.settings-group p {
+  color: var(--secondary);
+  font-size: 13px;
+}
+.preference-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.preference-row label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+.preference-row select {
+  width: auto;
+  max-width: 65%;
+  min-width: 0;
+}
+.settings-group input[type='file'] {
+  background: var(--surface);
+}
+.share-option {
+  padding: 14px 16px;
+  border-radius: 14px;
+}
+.share-option:not(.primary) {
+  background: var(--subtle);
+}
+.share-option:not(.primary):hover {
+  background: var(--accent-bg);
+}
+.modal-heading button {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--subtle);
+  color: var(--secondary);
+  font-size: 16px;
+}
+
+.image-share-page {
+  margin: 24px 0;
+}
+.image-share-page img {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  margin: 12px auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.image-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+/* Shared dialog anatomy: heading and commit actions remain visible. */
+dialog {
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px #00000008,
+    0 20px 70px #0003;
+}
+dialog::backdrop {
+  background: #0004;
+  backdrop-filter: blur(2px);
+}
+.modal-actions {
+  position: sticky;
+  bottom: -28px;
+  z-index: 3;
+  background: var(--surface);
+  padding: 16px 0;
+  margin-bottom: -12px;
+  border-top: 1px solid var(--line);
+  gap: 12px;
+  align-items: center;
+}
+.modal-actions > div {
+  display: flex;
+  gap: 8px;
+}
+.modal-heading h2 {
+  font-size: 20px;
+  letter-spacing: -0.4px;
+}
+.modal-description {
+  font-size: 13px;
+}
+.edit-advanced {
+  margin-top: 20px;
+}
+.share-review {
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--warning-bg);
+  color: var(--warning);
+  font-size: 12px;
+}
+.share-review ul {
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+.share-preview {
+  margin: 20px 0;
+}
+.share-preview pre {
+  white-space: pre-wrap;
+  max-height: 280px;
+  overflow: auto;
+  font: inherit;
+  font-size: 13px;
+  padding: 16px;
+  background: var(--subtle);
+  border-radius: 8px;
+}
+.export-preview {
+  background: white;
+  color: #1d1d1f;
+  max-height: 380px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.export-preview .email-report {
+  padding: 24px !important;
+}
+.export-form select,
+#share-format {
+  width: 100%;
+}
+.copy-options {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+}
+.import-overview {
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--subtle);
+}
+#data-adjust {
+  margin: 20px 0;
+}
+#data-adjust > summary {
+  font-size: 13px;
+  color: var(--accent);
+}
+.risk-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.slide-previews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-height: 350px;
+  overflow: auto;
+  margin: 20px 0;
+}
+.slide-mini {
+  aspect-ratio: 16/9;
+  padding: 18px;
+  background: #fff;
+  color: #22352e;
+  border: 1px solid #dedee3;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 10px;
+}
+.slide-mini h3 {
+  font-size: 15px;
+  margin: 10px 0;
+}
+.slide-mini p {
+  font-size: 10px;
+}

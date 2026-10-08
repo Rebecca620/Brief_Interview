@@ -1,0 +1,18 @@
+{
+  "pages" : 12,
+  "renderer" : "macOS PDFKit",
+  "selectableCharacters" : [
+    186,
+    329,
+    294,
+    246,
+    374,
+    559,
+    460,
+    404,
+    392,
+    351,
+    382,
+    412
+  ]
+}

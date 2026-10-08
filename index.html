@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f7" />
+    <meta
+      name="description"
+      content="Turn project notes, metrics, and screenshots into a clear weekly update. Review, edit, and share it through email or your apps."
+    />
+    <title>Brief — Your weekly update, ready to send.</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-loading="true">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="app-header">
+      <a class="brand" href="#library" aria-label="Brief home"
+        ><span class="app-icon" aria-hidden="true"><span data-icon="file"></span></span>Brief</a
+      >
+      <p class="sidebar-label">WORKSPACE</p>
+      <nav aria-label="Main navigation">
+        <button class="nav-item" id="all-reports">
+          <span data-icon="file" aria-hidden="true"></span> My reports
+          <span id="report-total" class="nav-count"></span>
+        </button>
+        <button class="nav-item" id="new-report">
+          <span data-icon="plus" aria-hidden="true"></span> New report <kbd>⌘N</kbd>
+        </button>
+        <button class="nav-item" id="trash-reports">
+          <span data-icon="trash" aria-hidden="true"></span> Trash
+        </button>
+      </nav>
+      <div class="sidebar-bottom">
+        <p><span class="local-dot"></span> Saved on this device</p>
+        <button class="nav-item" id="settings-button">
+          <span data-icon="sliders" aria-hidden="true"></span> Settings
+        </button>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section id="home-page" class="home-hero">
+        <p class="eyebrow">A FRESH START</p>
+        <h1 id="home-title">New report</h1>
+        <p>Start with a few notes or a file. Shape the details in your report.</p>
+      </section>
+      <div id="error-banner" role="alert" hidden>
+        <span id="error-message"></span
+        ><button id="retry-save" class="text-button">Retry save</button
+        ><button id="error-backup" class="text-button">Back up reports</button
+        ><button id="dismiss-error" aria-label="Dismiss error">
+          <span data-icon="close" aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div id="report-toolbar" class="report-toolbar" hidden>
+        <h1 class="sr-only">Edit your weekly update</h1>
+        <div>
+          <button id="home-new" class="text-button">All reports</button
+          ><span id="save-status" role="status"></span>
+        </div>
+        <div class="report-toolbar-actions">
+          <button
+            id="toggle-material"
+            class="btn"
+            aria-expanded="false"
+            aria-controls="material-panel"
+          >
+            Add material</button
+          ><button id="undo-report" class="btn" disabled title="Undo (⌘Z)">Undo</button
+          ><button id="redo-report" class="btn" disabled title="Redo (⇧⌘Z)">Redo</button
+          ><button id="risk-review-report" class="btn">Review project risks</button>
+          <button id="export-report" class="btn">Export…</button
+          ><button id="meeting-report" class="btn">Meeting…</button
+          ><button id="ai-review-report" class="btn" hidden>Check decisions & blockers</button
+          ><button id="share-button" class="btn primary">
+            Share… <span data-icon="share" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-views" role="group" aria-label="Editor view">
+        <button data-panel="material" aria-pressed="true">Material</button
+        ><button data-panel="preview" aria-pressed="false">Preview</button>
+      </div>
+      <div class="composer" data-panel="material">
+        <section id="material-panel" class="material-panel" aria-labelledby="material-heading">
+          <div class="panel-heading">
+            <div>
+              <span class="step-number">01</span>
+              <h2 id="material-heading">Material</h2>
+            </div>
+            <button id="close-material" class="text-button" aria-label="Close material sidebar">
+              Done
+            </button>
+          </div>
+          <form id="intake-form">
+            <label for="intake-notes">What happened this week?</label>
+            <textarea
+              id="intake-notes"
+              placeholder="Pilot is live on 80 of 100 devices.&#10;&#10;Needs a decision: VPN access approval is pending.&#10;&#10;Next steps: Roll out to the remaining devices."
+              aria-describedby="notes-help"
+            ></textarea>
+            <p class="field-help" id="notes-help">
+              One update per paragraph. Your wording stays yours.
+            </p>
+            <details class="note-options">
+              <summary>Organize notes</summary>
+              <div class="preference-row">
+                <label for="notes-section">Place pasted notes in</label
+                ><select id="notes-section">
+                  <option value="auto">Use section labels in my notes</option>
+                  <option value="progress">Progress</option>
+                  <option value="decision">Needs a decision</option>
+                  <option value="discussion">Needs discussion</option>
+                  <option value="next">Next steps</option>
+                </select>
+              </div>
+            </details>
+            <label id="intake-drop" class="intake-drop" for="intake-files"
+              ><span aria-hidden="true">＋</span
+              ><span
+                ><strong>Attach files</strong
+                ><small>PDF, Word, notes, data, or screenshots · 2 MB each</small></span
+              ><input
+                id="intake-files"
+                type="file"
+                multiple
+                accept=".pdf,.docx,.html,.htm,.json,.jsonl,.ndjson,.txt,.md,.csv,image/png,image/jpeg,image/webp"
+            /></label>
+            <details class="example-data">
+              <summary>Explore sample data</summary>
+              <p class="field-help">
+                Try fictional data:
+                <button type="button" class="text-button" data-example="numeric">
+                  JSON project data
+                </button>
+                ·
+                <button type="button" class="text-button" data-example="evaluation">
+                  JSONL evaluation scores
+                </button>
+              </p>
+            </details>
+            <p id="material-count" class="field-help" role="status"></p>
+            <ul id="material-list"></ul>
+            <details class="import-options">
+              <summary>File formats & import options</summary>
+              <label class="split-option"
+                ><input type="checkbox" id="split-notes" checked /> Split text into one card per
+                paragraph</label
+              >
+              <p>
+                CSV columns: title, value, target. Values must be non-negative and targets greater
+                than zero. <a href="sample-metrics.csv" download>Download an example CSV</a>.
+              </p>
+              <p>
+                JSON/JSONL: choose numeric data or evaluation results, map fields, then select
+                findings. Arrays, wrapped record collections, and Eval Studio compress candidates
+                are supported. HTML text and flat tables, TXT, Markdown, PNG, JPG, and WebP are also
+                supported. Interactive HTML scripts are not executed; link to a hosted chart or
+                import a PNG preview. PDF selectable text and Word .docx body text are supported
+                with a review step. Scanned PDFs need OCR; embedded document images and original
+                layout are not imported. Older .doc files must be saved as .docx.
+              </p>
+              <p>
+                Use explicit “Progress:”, “Needs a decision:”, or “Next steps:” labels to organize
+                notes. Unlabelled text goes into Progress; you can change it in the preview.
+              </p>
+            </details>
+            <div class="intake-bottom">
+              <button id="create-report" class="btn primary" disabled>
+                Create my update <span data-icon="forward" aria-hidden="true">→</span></button
+              ><button type="button" id="try-example" class="text-button">Try an example</button>
+            </div>
+          </form>
+          <div id="source-material" hidden>
+            <div class="source-heading">
+              <h3>Already in this update</h3>
+              <span id="source-count"></span>
+            </div>
+            <div id="sources"></div>
+          </div>
+          <p class="privacy-note">
+            <span data-icon="lock" aria-hidden="true">◉</span> Your material stays on this device.
+          </p>
+        </section>
+        <section class="preview-panel" aria-labelledby="preview-heading">
+          <div class="panel-heading">
+            <div>
+              <span class="step-number">02</span>
+              <h2 id="preview-heading">Report</h2>
+            </div>
+            <span id="preview-label" class="small-label">EXAMPLE</span>
+          </div>
+          <div id="sample-preview"></div>
+          <div id="builder-view" hidden>
+            <div class="report-meta">
+              <h1 id="report-heading">
+                <label class="sr-only" for="report-title">Report title</label
+                ><textarea
+                  id="report-title"
+                  rows="1"
+                  maxlength="180"
+                  placeholder="Name your update"
+                ></textarea>
+              </h1>
+              <label class="sr-only" for="report-period">Reporting period</label
+              ><input
+                id="report-period"
+                maxlength="100"
+                placeholder="Add a reporting period (optional)"
+              />
+            </div>
+            <div class="template-controls">
+              <label for="report-template">Report layout</label>
+              <select id="report-template">
+                <option value="standard">Weekly update</option>
+                <option value="retrospective">Project retrospective</option>
+              </select>
+              <button class="text-button" id="preview-layout">Preview layout</button>
+            </div>
+            <div id="addition-banner" class="addition-banner" role="status" hidden>
+              <span id="addition-message"></span
+              ><button class="text-button" id="undo-addition">Undo</button
+              ><button
+                class="text-button"
+                id="dismiss-addition"
+                aria-label="Dismiss additions notice"
+              >
+                ×
+              </button>
+            </div>
+            <p id="review-summary" class="review-summary" role="status"></p>
+            <div id="cards"></div>
+            <button id="add-card" class="add-card">
+              <span data-icon="plus" aria-hidden="true">＋</span> Add an update
+            </button>
+            <p id="persistence-status" class="field-help" role="status"></p>
+          </div>
+          <div class="preview-foot">
+            <span data-icon="share" aria-hidden="true">↗</span>
+            <p>
+              Open a prefilled email or share through your apps.<br />Your recipients don’t need
+              Brief.
+            </p>
+          </div>
+        </section>
+      </div>
+      <section id="library-section" class="library-section" aria-labelledby="library-heading">
+        <div class="library-heading">
+          <div>
+            <p class="eyebrow">YOUR WORK, CLEARLY TOLD</p>
+            <h1 id="library-heading">My reports</h1>
+            <p id="library-description">A place for progress, decisions, and what comes next.</p>
+          </div>
+          <button class="btn primary" id="library-new">
+            <span data-icon="plus" aria-hidden="true"></span> New report
+          </button>
+        </div>
+        <div class="library-controls">
+          <label class="search-field"
+            ><span data-icon="search" aria-hidden="true"></span
+            ><input
+              id="library-search"
+              type="search"
+              aria-label="Search reports"
+              placeholder="Search your reports…" /></label
+          ><label class="sort-field"
+            >Sort by
+            <select id="library-sort">
+              <option value="recent">Last edited</option>
+              <option value="title">Title</option>
+            </select></label
+          >
+        </div>
+        <p id="library-results" class="field-help" role="status"></p>
+        <div id="report-library" class="report-library"></div>
+        <div id="library-empty" class="library-empty">
+          <span class="empty-document" aria-hidden="true"><span data-icon="file"></span></span>
+          <h2>Your next report starts here.</h2>
+          <p>Bring your notes together. Make the important things clear.</p>
+          <div>
+            <button class="btn primary" id="empty-new">Create a report</button
+            ><button class="btn" id="library-example">Try an example</button>
+          </div>
+          <p class="field-help">Private by default. No account needed.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>Brief</span><span>Make progress clear.</span
+      ><span id="footer-note"
+        >Your material stays on this device unless you choose to share it.</span
+      >
+    </footer>
+    <dialog id="settings-modal" aria-labelledby="settings-title">
+      <div class="modal-heading">
+        <h2 id="settings-title">Settings</h2>
+        <button id="close-settings" aria-label="Close settings">
+          <span data-icon="close" aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="settings-group">
+        <div class="preference-row">
+          <label for="appearance">Appearance</label
+          ><select id="appearance">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </div>
+      <section class="settings-group" aria-labelledby="backup-heading">
+        <h3 id="backup-heading" class="settings-backup-title">Keep a copy of your work</h3>
+        <p>
+          Reports are saved on this device. Export a backup to keep a separate copy or move your
+          work to another device.
+        </p>
+        <button class="btn" id="backup-library">Back up all reports</button
+        ><label for="restore-library">Restore backup as separate copies</label
+        ><input id="restore-library" type="file" accept=".html,.htm,.json,application/json" />
+      </section>
+    </dialog>
+    <dialog id="modal" aria-labelledby="modal-title">
+      <div class="modal-heading">
+        <h2 id="modal-title"></h2>
+        <button id="close-modal" aria-label="Close dialog">
+          <span data-icon="close" aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div id="modal-body"></div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

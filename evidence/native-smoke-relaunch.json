@@ -1,0 +1,19 @@
+{
+  "persisted" : true,
+  "headings" : 6,
+  "before" : 1,
+  "flushed" : true,
+  "after" : 2,
+  "secure" : true,
+  "appended" : {
+    "message" : "1 cards ready to review.",
+    "consumed" : true,
+    "reportId" : "df535998-15bc-4dbf-884c-96a2f7d4ef84"
+  },
+  "result" : {
+    "message" : "5 cards ready to review.",
+    "consumed" : true,
+    "reportId" : "df535998-15bc-4dbf-884c-96a2f7d4ef84"
+  },
+  "destinationRetained" : true
+}

@@ -1,0 +1,140 @@
+BRIEF — 15-MINUTE ENGLISH PRESENTATION
+
+15 slides. Includes screenshot walkthrough pauses.
+
+SLIDE 1 — Project reporting. Made clear.
+Target: 40 seconds
+
+Good morning, and thank you for the opportunity. This is Brief, a lightweight macOS project reporting tool. Its purpose is simple: help people turn project material into an update that others can understand and act on. I designed it around a familiar enterprise situation: a project lead has notes, numbers, and screenshots, but needs to communicate the same progress to several audiences. I will show the working experience, explain the choices that make it useful, and finish with the engineering foundation and a practical path to production.
+
+
+
+------------------------------
+
+SLIDE 2 — Why macOS
+Target: 75 seconds
+
+I chose to make Brief a macOS tool because reporting should stay close to the work. Users should not have to keep switching between different websites to edit and update a report. This compact panel gives them one place to capture new material. They first choose the destination report, then drop files from Finder or paste a few notes. The panel stays open while they use Finder, so collecting material fits naturally into their existing desktop workflow. When they are ready, they add it to the report and continue editing. The benefit is less context switching and a clear place to return to throughout the day. The following screens show the reporting workspace behind that experience.
+
+Presentation cue: point to the destination selector, file drop area and notes field.
+
+Walkthrough pause (25 seconds): point out the report destination, file drop area, and notes field. Explain how the panel fits beside Finder.
+
+------------------------------
+
+SLIDE 3 — Guided entry
+Target: 55 seconds
+
+The first design decision is to make the next action obvious. Instead of exposing every feature on one screen, Brief begins with a report library and a clear create action. The user sees three steps: add material, review the report, and share. Creating or updating a report takes them to a dedicated intake page. Only after adding material do they enter the focused reporting workspace. Returning users can open an existing report directly. This separation gives each page one job and makes the product easier to understand without a tutorial. Here, the screenshots are from the running prototype, rather than concept mockups.
+
+Presentation cue: point to the three steps and pause for five seconds.
+
+------------------------------
+
+SLIDE 4 — From input to cards
+Target: 60 seconds
+
+The original web reporting core shown here supports a focused set of inputs: pasted text, text and Markdown files, CSV metrics, and image assets. A CSV uses title, value, and target columns, so a completion metric can be calculated consistently. The resulting report is a set of editable snippet cards for updates, metrics, decisions, or images. Each card carries its own meaning and can be reordered or copied independently. This is structured import, not an AI claim: the current application does not semantically summarize arbitrary documents. The macOS panel shown earlier lists a broader set of formats. The tests discussed later cover the original reporting core, so native import support needs its own verification. Keeping that boundary explicit makes the demonstration reliable and the next engineering step clear.
+
+
+
+------------------------------
+
+SLIDE 5 — People and actions
+Target: 55 seconds
+
+Reports are ultimately about people doing work. Brief supports mentions and explicit ownership, but treats them differently. A mention gives context; an owner is accountable for a decision or next step. The people and actions view brings those relationships together and flags missing deadlines. In this example, Maya owns a decision, while Jordan and Sam are mentioned for context. That distinction prevents an ordinary reference from looking like an assignment. Mentions are local to this prototype and export as names. They do not send notifications or imply a live directory integration. A later enterprise version could connect identity and permissions, while preserving this clear distinction.
+
+
+
+------------------------------
+
+SLIDE 6 — Audience lens
+Target: 50 seconds
+
+Another small but useful idea is the audience lens. A team may want to read the update in its original order. A leadership audience often needs to see the decision first. Brief changes the ordering of the same cards so the reader starts with what matters to that audience. The current leadership order is decisions, metrics, updates, then images. It does not remove information or generate a new summary. This is intentional: the facts remain consistent, and the user does not have to maintain a separate executive version. It is a modest implementation with a clear communication benefit.
+
+
+
+------------------------------
+
+SLIDE 7 — Translation within reach
+Target: 70 seconds
+
+For a global company, language is part of the reporting workflow. I did not want translation to be buried in a settings page. It sits directly in the report toolbar, next to Preview and Share, where a user is already thinking about their audience. There is also an entry inside the sharing dialog. That gives two natural paths: create a language version while editing, or translate just before sharing. This is the feature I would emphasize in the interview, because the innovation is not simply that translation exists. It is placing it at the right point in the task, with a clear review step and a safe relationship to the original report.
+
+Presentation cue: point to Translate in the actual toolbar screenshot; allow ten seconds to explain the placement.
+
+------------------------------
+
+SLIDE 8 — Editable translation
+Target: 110 seconds
+
+The translation view pairs the source text with editable translated fields. The example here is Chinese text entered for demonstration. The user can refine terminology, then copy, export, or save a separate editable report. Structured metric values, owners, dates, and source references are retained. The automatic path also protects selected names, numbers, and URLs in prose, but review remains important. There are eleven language choices in the interface. Automatic translation uses the browser Translator API when available; it was not available for the tested language path in this browser, so I am showing the manual editing fallback honestly. No cloud translation API is connected. Saved translations are snapshots, not synchronized versions, and some labels remain in English. Those are deliberate next-stage improvements, rather than hidden limitations.
+
+Presentation cue: use the source and translated body as a visual comparison, then point to Save as editable report.
+
+Walkthrough pause (30 seconds): compare the source and edited Chinese text, then point out the separate save and share choices.
+
+------------------------------
+
+SLIDE 9 — Share and export
+Target: 55 seconds
+
+Brief meets people where they already communicate. The sharing dialog offers formatted email content with a plain-text fallback, readable messaging text, and a standalone HTML report. Individual snippet cards can also be copied. A JSON download provides a project backup, although importing that backup is not implemented yet. The user remains responsible for choosing the destination and pressing send in their communication tool. The application does not silently publish or notify anyone. This keeps the proof of concept lightweight and avoids requiring a collaboration platform integration before it delivers value. Email rendering still needs testing across actual enterprise clients, especially when images and rich formatting are involved.
+
+
+
+------------------------------
+
+SLIDE 10 — Visual design
+Target: 50 seconds
+
+The visual direction is inspired by the restraint of Apple interfaces: familiar controls, a clear hierarchy, generous spacing, and emphasis on the user's content. The product supports light, dark, and system appearance, plus a responsive layout for narrower screens. The screenshots show the actual dark and mobile views. I would describe this as an Apple-inspired design approach, not an official Apple design or a complete implementation of the Human Interface Guidelines. The goal is a calm tool that feels understandable immediately. The same restraint carries into this presentation: one idea at a time, with the product doing most of the explaining.
+
+
+
+------------------------------
+
+SLIDE 11 — Accessibility and recovery
+Target: 60 seconds
+
+Accessibility and error handling belong in the product flow, rather than being an appendix to it. Brief uses semantic controls, labels, visible focus, keyboard actions, and image descriptions. Reordering has buttons, so it does not depend only on dragging. Exported HTML keeps text as text. Import validation checks each file independently, so one invalid file does not discard the valid material. The prototype limits file size and CSV rows to keep behavior manageable. It also provides undo and handles malformed saved data. These are accessibility foundations, not a certification. A complete VoiceOver review, screen-level contrast audit, keyboard walkthrough, and email-client check are still required before claiming broad accessibility compliance.
+
+
+
+------------------------------
+
+SLIDE 12 — Engineering foundation
+Target: 70 seconds
+
+The implementation is intentionally small: native HTML, CSS, and JavaScript modules, with no runtime package dependency. The model, workflow, and translation logic are separated from the interface so important behavior can be tested directly. The current test suite contains nineteen passing unit tests. It covers areas such as parsing and validation, calculations, safe exporting, report workflow, and translation integrity. Documentation includes setup instructions, the supported formats, accessibility notes, and sample metric data. Local drafts make the prototype convenient to run, but local storage is not enterprise secure persistence. I would strengthen the next iteration with consistent formatting and linting, typed contracts, automated browser tests, and CI. I am presenting the checks we actually have, alongside the standards I would add before production.
+
+Evidence: outputs/brief/tests.mjs; node tests.mjs passed during deck preparation. No claim of coverage percentage or existing CI.
+
+------------------------------
+
+SLIDE 13 — Cloud evolution
+Target: 65 seconds
+
+The macOS tool keeps the reporting experience close to the desktop, while the shared web reporting core gives us a practical path to cloud services. Hosted web assets can be served through an HTTPS content delivery network. A small backend would hold provider credentials, validate requests and responses, and apply timeouts, rate limits, and access controls. Reports would move from browser storage to an authorized, encrypted store with an audit and retention policy. Enterprise identity would supply people and permissions. This is a proposed architecture, not a deployed system. I would choose the specific cloud provider based on the organization's existing platform and requirements. The key separation is that the client handles the reporting experience, while the service boundary handles credentials, policy, and durable data.
+
+
+
+------------------------------
+
+SLIDE 14 — AI roadmap
+Target: 55 seconds
+
+The next step is document understanding, including the Jev integration discussed for this project. I would first confirm its API contract and put the integration behind the backend. Extracted evidence would be transformed into a strict card schema, with references back to the source. Charts should come from verified numeric data, not invented values. A sequence diagram should only be suggested when the document describes an interaction or system flow. The user would review these outputs before applying them to the report. Document extraction and validation belong in a separate ingestion step. None of that AI pipeline is connected today. The design establishes a useful reporting workflow first, then gives AI a bounded, reviewable role within it.
+
+
+
+------------------------------
+
+SLIDE 15 — Closing
+Target: 30 seconds
+
+Brief brings the project reporting task into one clear flow: gather material, review structured cards, and share. The creative details are practical ones: safely adding new material, distinguishing owners from mentions, changing the audience order, and making translation easy to reach and edit. The proof of concept demonstrates the core interaction, with tests and documented boundaries. My next milestone would be a small user pilot and accessibility review, followed by the cloud and AI integration. Thank you. I would be happy to discuss the design or walk through the implementation.
+
+

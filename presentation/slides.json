@@ -1,0 +1,176 @@
+[
+  {
+    "title": "Brief",
+    "subtitle": "Project Reporting Builder",
+    "kind": "cover",
+    "seconds": 60,
+    "headline": "Project material, ready for a clear update",
+    "points": [
+      "A macOS proof of concept with a responsive shared web workspace",
+      "Take-home assessment, version 0.5"
+    ],
+    "notes": "Hello, and thank you for the opportunity to present Brief. Brief is a proof of concept for enterprise project reporting. It takes the notes, measurements and images that people already have and helps them assemble a structured update. The main experience is a macOS menu bar tool, supported by a responsive web workspace. Today I will explain the user problem, demonstrate the core workflow, and discuss the engineering choices and tradeoffs. I will also separate what the implementation demonstrates from what still needs user research or production validation.",
+    "source": "README.md; package.json"
+  },
+  {
+    "title": "The reporting work sits between tools",
+    "subtitle": "User hypothesis",
+    "kind": "problem",
+    "seconds": 75,
+    "points": [
+      "Project evidence arrives as notes, spreadsheets and screenshots",
+      "The reader needs progress, decisions and next steps",
+      "The author repeatedly rewrites, formats and moves the same information"
+    ],
+    "headline": "Success means a correct, shareable update with less assembly work",
+    "notes": "The starting hypothesis is that project leads already have the raw information they need. The expensive part is assembling that information into a form that another person can understand and act on. A measurement might sit in a spreadsheet, a blocker in a chat, and a screenshot in a folder. The recipient needs a concise story, with decisions and next steps visible. I designed for a project owner preparing a weekly update, rather than a person building a full dashboard. This is a design hypothesis, not a research finding. A useful next study would compare time to a correct report, correction count, and reader understanding against the person’s current workflow. I have not measured a productivity improvement yet.",
+    "source": "Assessment supplied by user; docs/INTERVIEW.md"
+  },
+  {
+    "title": "A small, reviewable reporting workflow",
+    "subtitle": "Product model",
+    "kind": "flow",
+    "seconds": 75,
+    "points": [
+      "Collect\nPaste notes or add files",
+      "Draft\nTurn material into snippet cards",
+      "Refine\nEdit wording and assign actions",
+      "Share\nCopy content or export a file"
+    ],
+    "headline": "Original evidence stays available while the author shapes the report",
+    "notes": "The workflow has four stages. Collect accepts existing material. Draft converts it into a consistent card model. Refine gives the author control over wording, order, sections and responsibility. Share prepares content for the communication tool they already use. I kept transformation explicit. Clear section labels influence organization, but the tool does not invent business meaning from a number. Ambiguous datasets ask the user to confirm field mapping. The original evidence remains available for review. A card is a portable content unit within a report, so the author can share one update without exporting unrelated material. This small model keeps the core interaction understandable while still allowing metrics, images and richer evidence to live together.",
+    "source": "src/features/intake/; src/domain/report.js; src/domain/export.js"
+  },
+  {
+    "title": "The report is the primary workspace",
+    "subtitle": "Interaction design",
+    "kind": "screen",
+    "seconds": 75,
+    "image": "assets/report.png",
+    "points": [
+      "Edit headings and text directly",
+      "Open material only when adding evidence",
+      "Use sections to make decisions and next steps visible"
+    ],
+    "caption": "Shared report workspace with fictional rollout data",
+    "notes": "This screen shows the shared report workspace using fictional device-rollout data. The document is the primary surface. The material panel is optional, because importing is only one part of the task. Headings and ordinary text can be edited directly. Structured fields, such as metric targets and decision owners, remain in an inspector. The layout puts reporting sections above modular cards. A dedicated library provides search and sorting, rather than mixing previous reports into the creation screen. I also changed the sample so it goes through the same notes pipeline as user content. That keeps the first-run promise aligned with the actual behavior. This screenshot shows the shared workspace, not a recording of the native capture panel.",
+    "source": "src/features/reports/; src/features/library/; tests/browser/workflow.spec.js"
+  },
+  {
+    "title": "A two-and-a-half-minute demonstration",
+    "subtitle": "Live demo with fictional inputs",
+    "kind": "demo",
+    "seconds": 150,
+    "points": [
+      "0:00 - 0:35  Collect notes, metrics.csv and rollout.png",
+      "0:35 - 1:10  Build the report and inspect the metric",
+      "1:10 - 1:50  Edit an update, owner and deadline",
+      "1:50 - 2:30  Describe the image, then copy or export"
+    ],
+    "headline": "Expected result: 80 of 100 devices, an explicit decision, and a shareable image card",
+    "notes": "[Live demonstration. Keep this segment to two minutes and thirty seconds.]\nOpen the menu bar capture panel. I am adding the three fictional files from the demo-data folder. The text describes a pilot rollout. The CSV contains a value of eighty against a target of one hundred. The image is a fictional deployment illustration.\nChoose Build report draft. The simple metric creates a card without asking me to map unrelated fields. The report shows eighty percent of target. I can inspect the source rather than trusting an unexplained result.\nOpen the decision card. I will assign an owner and a deadline, then save. Next, edit a sentence directly in the report. The saved status tells me when persistence completes. If I close an unfinished inspector edit, Brief retains it as a draft.\nBefore sharing the image, add a meaningful image description. Open Share to copy formatted content. Alternatively, use Export and preview the PNG. I will cancel any native sharing picker before sending.\n[Fallback if native installation is restricted: use the local web workspace with the same files. If live interaction fails, describe the expected results using the included screenshots and continue. Do not imply a recorded native run exists.]",
+    "source": "demo-data/README.md; tests/browser/workflow.spec.js; src/features/native-capture/"
+  },
+  {
+    "title": "Accessibility needs evidence at several levels",
+    "subtitle": "Design quality",
+    "kind": "compare",
+    "seconds": 75,
+    "points": [
+      "Implemented\nSemantic controls, visible focus and named dialogs\nImage descriptions and selectable text\nLight/dark themes and reduced motion",
+      "Verified automatically\nAxe scans across key screens\nKeyboard focus return and skip link\nReflow at narrow viewport widths",
+      "Still to validate manually\nVoiceOver across the complete workflow\nZoom and destination-client rendering\nNative capture and system dialogs"
+    ],
+    "headline": "Automated checks support accessibility work; they do not certify conformance",
+    "notes": "Accessibility is part of the content model as well as the interface. An image card needs a useful description before formatted sharing. Text exports remain selectable, and charts expose exact values through accessible content. The interface uses semantic controls, named dialogs, visible focus and a skip link. It also respects reduced motion and supports light and dark themes. Automated checks run against the rendered pages, including the editor, import dialogs and sharing. Keyboard tests check focus return after rebuilding a card. Narrow viewport checks cover reflow. These are meaningful checks, but I would not describe the POC as fully accessibility-compliant yet. A complete VoiceOver walkthrough, zoom testing, and review in the target communication clients still need manual evidence. That distinction matters because passing an automated scanner does not establish that an enterprise user can complete the entire task.",
+    "source": "docs/ACCESSIBILITY.md; tests/browser/redesign.spec.js; tests/browser/workflow.spec.js"
+  },
+  {
+    "title": "Sharing follows the recipient’s workflow",
+    "subtitle": "Output design",
+    "kind": "table",
+    "seconds": 75,
+    "rows": [
+      ["Need", "Output", "Tradeoff"],
+      ["Paste into an email draft", "Formatted HTML and plain text", "Client formatting can vary"],
+      ["Attach a readable report", "HTML or PDF", "PDF pagination uses print preview"],
+      ["Post a visual update", "PNG pages", "Image text is not selectable"],
+      ["Continue in a slide tool", "PowerPoint export", "Text/tables editable; charts are images"]
+    ],
+    "headline": "Share one card or the report. The user chooses the destination and sends.",
+    "notes": "The output should fit the recipient’s workflow. For an email draft, Brief offers formatted clipboard content with a plain-text representation. For a portable document, the user can export standalone HTML or use the native print dialog to save a PDF. For messaging, PNG pages provide a visual artifact. That format has an accessibility tradeoff because its text is not selectable, so text-based alternatives remain available. There is also a PowerPoint export for continued editing of text and tables. I separated sharing, file export and meeting preparation into distinct entry points so one dialog does not try to answer every question. The app prepares the payload and hands it off to a destination selected by the user. It does not choose recipients or send messages automatically. Destination-client rendering still needs acceptance testing on the reviewer’s actual apps.",
+    "source": "src/features/sharing/; src/features/slides/slides.js; tests/browser/sharing.spec.js"
+  },
+  {
+    "title": "Native capture, shared reporting logic",
+    "subtitle": "Engineering architecture",
+    "kind": "architecture",
+    "seconds": 75,
+    "points": [
+      "SwiftUI and AppKit\nMenu bar capture, native menus, save/share/print",
+      "WKWebView and ES modules\nResponsive workspace and feature UI",
+      "Domain and repository\nValidated report contracts, analysis and export",
+      "Platform storage\nNative atomic files or browser IndexedDB"
+    ],
+    "headline": "One report model keeps import, editing and export behavior consistent",
+    "notes": "The Mac shell owns what benefits from native integration: capture, menus, window behavior, and operating-system dialogs. WKWebView hosts the reporting workspace. The same feature modules also run in a browser, which gives the project a responsive alternative and a useful testing surface. Domain modules own validation, calculations and export content. They do not depend on AppKit or DOM state. The repository owns persistence behavior, while a platform adapter chooses native files or IndexedDB. This boundary lets the UI work with reports instead of storage keys. I chose standard JavaScript modules to keep the proof of concept small and inspectable. SwiftUI and AppKit provide native collection and handoff without rewriting the reporting engine twice. The bundled app does not need a Node server. Its authenticated loopback server only serves the local workspace and the protected storage bridge.",
+    "source": "docs/ARCHITECTURE.md; macos/Sources/BriefMac/; src/platform/"
+  },
+  {
+    "title": "Recovery is part of the main workflow",
+    "subtitle": "Reliability",
+    "kind": "recovery",
+    "seconds": 60,
+    "points": [
+      "An unfinished edit returns as a saved inspector draft",
+      "Trash restores removed reports; session undo reverses edits",
+      "An atomic manifest commits separate report and attachment records",
+      "Failed saves preserve work and offer retry or backup"
+    ],
+    "headline": "Native quit waits for the latest save, including edits made during an earlier write",
+    "notes": "Several design choices address recovery directly. Closing an inspector does not silently discard its unfinished text. Removed reports go to Trash. Session undo and redo help reverse editing operations. Persistence separates attachments from report records so an accepted image no longer immediately conflicts with a tiny whole-library budget. Immutable records are committed through an atomic manifest, with a conflict check before replacement. A save failure leaves the work in memory and exposes retry and backup options. Quitting the native app waits for the save drain, including changes made while an earlier write was running. Old library data remains available during migration. Startup reclaims unreachable autosave records only after checking the current references. These boundaries are tested because a polished interface is not enough if users cannot trust it with their work.",
+    "source": "src/platform/library-storage.js; src/data/report-repository.js; tests/recovery.test.mjs"
+  },
+  {
+    "title": "Engineering evidence is included in the handoff",
+    "subtitle": "Local verification",
+    "kind": "numbers",
+    "seconds": 60,
+    "points": [
+      "76\nUnit and server tests passed",
+      "67\nBrowser tests passed",
+      "2\nNative smoke launches checked"
+    ],
+    "headline": "Lint, formatting, native storage/quit tests and release compilation also pass",
+    "caption": "One optional browser test requires a supplied local fixture and was skipped. Hosted CI has not been run.",
+    "notes": "The handoff includes source, configuration, tests and verification evidence. The current local run has seventy-six passing unit and server tests and sixty-seven passing browser tests. One browser case intentionally requires an external fixture, so it is skipped rather than presented as passing. Native checks cover storage protection and quit recovery. Two actual WebKit smoke launches verified capture, append, saving and recovery of the prior library. The release build treats Swift warnings as errors. JavaScript lint and formatting, Swift formatting, and shell checks support consistent maintenance. A GitHub Actions workflow is included, but there is no hosted run to claim because this checkout has no configured remote. These are local engineering results, not a substitute for user testing or a complete native accessibility evaluation.",
+    "source": "evidence/; .github/workflows/check.yml; docs/VERIFICATION.md"
+  },
+  {
+    "title": "Cloud hosting can begin with the static workspace",
+    "subtitle": "Optional deployment path",
+    "kind": "cloud",
+    "seconds": 60,
+    "points": [
+      "POC option\nCloudflare Pages serves the built dist directory over HTTPS\nCore reports remain local to each browser",
+      "Shared enterprise product\nAdd SSO and report-level authorization\nUse an API, relational metadata and object storage"
+    ],
+    "headline": "No cloud sync or public deployment is claimed in this submission",
+    "notes": "The assessment asks for cloud technology choices as a good-to-have. The smallest deployment path is the static web workspace. The build produces a dist directory that can be hosted over HTTPS on Cloudflare Pages. That deploys the application, not the user’s saved reports. Browser-local report routes are not share links. If research establishes a need for collaboration or cross-device access, I would add enterprise sign-in, report-level authorization, an API, relational metadata, and object storage for attachments. Conflict resolution, retention and audit history would need explicit product decisions. Any cloud AI credentials would stay server-side, with a clear review of transmitted content. These are proposed extensions. The core POC currently runs locally, and the handoff does not imply that a cloud service has already been deployed.",
+    "source": "docs/CLOUD.md; https://developers.cloudflare.com/pages/framework-guides/deploy-anything/"
+  },
+  {
+    "title": "A focused POC with a clear next iteration",
+    "subtitle": "Scope and next steps",
+    "kind": "closing",
+    "seconds": 60,
+    "points": [
+      "Demonstrated\nMixed inputs, modular cards, responsive editing and sharing",
+      "Next validation\nVoiceOver, target communication clients and observed user tasks",
+      "Production work\nDistribution signing, second-Mac testing and shared access if needed"
+    ],
+    "headline": "Next measure: time to a correct, shareable update and the number of corrections required",
+    "notes": "The proof of concept demonstrates the assessment’s central workflow: ingest mixed material, structure it into editable snippet cards, and prepare those cards for communication. The extra features, such as recoverable drafts, project-risk review and slide export, support that core task. The scope remains explicit. There is no OCR, cloud collaboration or automatic message sending. Files are limited to two megabytes each, and capture accepts up to twenty files. The Mac build is a local development build, not a notarized distribution release. My next step would be a short observed study with project owners, measuring time to a correct shareable update and the corrections they need. I would pair that with manual accessibility and destination-client checks before expanding the feature set. Thank you. I am happy to discuss the design decisions or inspect the implementation.",
+    "source": "docs/REDESIGN.md; docs/ACCESSIBILITY.md; docs/MACOS-POC.md"
+  }
+]

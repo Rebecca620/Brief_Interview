@@ -1,0 +1,2 @@
+PASS: native persistence, invalid-write preservation, authenticated assets, origin isolation, traversal rejection, storage bridge
+PASS: saved quit, failed-save cancellation/retry, timeout recovery, repeated requests, late callbacks, explicit quit anyway

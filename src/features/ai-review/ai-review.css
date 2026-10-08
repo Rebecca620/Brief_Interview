@@ -1,0 +1,41 @@
+.ai-item {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.ai-item > label {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.ai-item details {
+  font-size: 12px;
+  color: var(--secondary);
+  margin: 10px 0;
+}
+.original-text {
+  white-space: pre-wrap;
+  margin-top: 8px;
+}
+.ai-result:empty {
+  display: none;
+}
+.ai-result {
+  background: var(--accent-bg);
+  padding: 14px;
+  border-radius: 7px;
+  margin-top: 12px;
+}
+.ai-result p {
+  margin: 8px 0;
+}
+.ai-result .btn {
+  margin: 10px 8px 0 0;
+}
+.ai-signals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.ai-signals dd {
+  margin: 0;
+}

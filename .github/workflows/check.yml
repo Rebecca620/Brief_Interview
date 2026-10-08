@@ -1,0 +1,46 @@
+name: Verify Brief
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run lint:swift
+      - run: npm run lint:shell
+      - run: npm run test:macos
+      - run: npm run build:macos
+      - run: codesign --verify --deep --strict .build/Brief.app
+      - run: ditto -c -k --sequesterRsrc --keepParent .build/Brief.app .build/Brief-macOS.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: brief-macos-development-build
+          path: .build/Brief-macOS.zip
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-quality.txt
+      - run: pnpm lint:python
+      - run: pnpm check
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:browser
+      - run: pnpm build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: brief-static-site
+          path: dist

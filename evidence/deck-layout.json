@@ -1,0 +1,68 @@
+{
+  "slideCount": 12,
+  "pdfBytes": 463203,
+  "notesToggle": true,
+  "layout": [
+    {
+      "title": "Brief",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "The reporting work sits between tools",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "A small, reviewable reporting workflow",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "The report is the primary workspace",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "A two-and-a-half-minute demonstration",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "Accessibility needs evidence at several levels",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "Sharing follows the recipient’s workflow",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "Native capture, shared reporting logic",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "Recovery is part of the main workflow",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "Engineering evidence is included in the handoff",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "Cloud hosting can begin with the static workspace",
+      "overflowing": [],
+      "overlap": false
+    },
+    {
+      "title": "A focused POC with a clear next iteration",
+      "overflowing": [],
+      "overlap": false
+    }
+  ],
+  "pageErrors": []
+}
